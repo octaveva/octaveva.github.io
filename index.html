@@ -781,7 +781,7 @@ html:root:not(#x) #faq .faq details p,html:root:not(#x) #faq .faq summary{paddin
           </button>
           <button type="button" class="pl-opt pl-care" data-k="care" aria-pressed="false" hidden>
             <span class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
-            <span class="pl-txt"><b>Care plan <em>+£30/month</em></b><small>Hosting, updates and small changes</small></span>
+            <span class="pl-txt"><b>Hosting &amp; Updates <em>+£30/month</em></b><small>Kept live, secure and updated, plus small changes</small></span>
             <span class="pl-sw" aria-hidden="true"><i></i></span>
           </button>
           <p class="pl-hint" id="plHint"></p>
@@ -900,7 +900,7 @@ html:root:not(#x) #faq .faq details p,html:root:not(#x) #faq .faq summary{paddin
         <details><summary>Do we ever need to meet in person?</summary><p>No. Everything happens online through video calls, messages and email. You send photos and videos from your phone, and I do the rest.</p></details>
         <details><summary>Who pays for the ads?</summary><p>You do, directly to Meta, from your own card. My fee is separate, so you always see exactly what Meta charged and you control the budget.</p></details>
         <details><summary>How is the 10% worked out?</summary><p>Only sales tracked back to the ads count, through a discount code, a special link or the Meta pixel on your website. You see the numbers in your monthly report before any invoice.</p></details>
-        <details><summary>Can I edit the website myself?</summary><p>Small changes are included in the care plan, so you just message me. If you'd rather edit it yourself, I can build it on a platform like Wix or Squarespace instead.</p></details>
+        <details><summary>Can I edit the website myself?</summary><p>Small changes are included in Hosting &amp; Updates, so you just message me. If you'd rather edit it yourself, I can build it on a platform like Wix or Squarespace instead.</p></details>
         <details><summary>How fast will I see results?</summary><p>Ads usually need two to four weeks of testing to find what works, and most businesses get a clear picture after two to three months. You'll see the trend in every monthly report.</p></details>
         <details><summary>Do you guarantee sales?</summary><p>No. Nobody can honestly guarantee that. What I guarantee is the agreed work, weekly checks on your ads and an honest report every month.</p></details>
       </div>
@@ -1218,7 +1218,7 @@ sl.addEventListener('input', calc); calc();
   const P = {
     web:{tag:'One-off', name:'Website', price:400, per:'from', plus:'', list:['Up to 5 pages, built for phones first','Contact form or booking link','Meta pixel set up, ready for ads','Your own domain, in your name'], for:'For businesses with no site, or an old one.'},
     ads:{tag:'Monthly', name:'Meta Ads', price:350, per:'/ month', plus:'+ 10% of tracked sales', list:['Facebook and Instagram campaigns','3–4 new ads a month, copy and graphics','Weekly checks and budget changes','Sales tracked with codes, links and the pixel','Monthly report by email'], for:'For businesses that already have a good website.'},
-    both:{tag:'Monthly · Best value', name:'Website + Ads', price:450, per:'/ month', plus:'+ 10% of tracked sales · website £250 to set up', list:['Everything in Website and Meta Ads','A landing page built for your ads','Care plan included','One extra fix each month, like your Google profile','Monthly report call'], for:'For businesses that want one person handling it all.'}
+    both:{tag:'Monthly · Best value', name:'Website + Ads', price:450, per:'/ month', plus:'+ 10% of tracked sales · website £250 to set up', list:['Everything in Website and Meta Ads','A landing page built for your ads','Hosting &amp; Updates included','One extra fix each month, like your Google profile','Monthly report call'], for:'For businesses that want one person handling it all.'}
   };
   const st = {web:true, ads:true, care:false};
   const $ = id => document.getElementById(id);
@@ -1247,11 +1247,11 @@ sl.addEventListener('input', calc); calc();
     $('plTag').textContent = d.tag; $('plName').textContent = d.name; $('plPer').textContent = d.per;
     tick(d.price);
     let list = d.list.slice(), plus = d.plus;
-    if (k === 'web'){ if (st.care){ list.push('Care plan: hosting, updates and small changes'); plus = '+ £30/month care plan'; } else list.push('Optional care plan: £30/month'); }
+    if (k === 'web'){ if (st.care){ list.push('Hosting &amp; Updates: kept live, secure and updated, plus small changes'); plus = '+ £30/month for Hosting & Updates'; } else list.push('Optional Hosting &amp; Updates: £30/month'); }
     $('plPlus').textContent = plus; $('plPlus').hidden = !plus;
     $('plList').innerHTML = list.map((t, i) => '<li style="--i:' + i + '">' + CK + t + '</li>').join('');
     $('plFor').textContent = d.for;
-    $('plHint').textContent = k === 'both' ? 'Together you save £150 on the website, and the care plan is included.' : k === 'web' ? 'Add more customers to get the website for £250 instead.' : 'Add a website to get a landing page built for your ads.';
+    $('plHint').textContent = k === 'both' ? 'Together you save £150 on the website, and Hosting & Updates is included.' : k === 'web' ? 'Add more customers to get the website for £250 instead.' : 'Add a website to get a landing page built for your ads.';
     if (k !== 'web'){ window.octFee = d.price; const l = $('cFeeL'), f = $('cFee'); if (l){ l.textContent = 'Monthly fee (' + d.name + ')'; f.textContent = '£' + d.price; } if (typeof calc === 'function') calc(); }
   }
   box.querySelectorAll('.pl-opt').forEach(b => b.addEventListener('click', () => { st[b.dataset.k] = !st[b.dataset.k]; render(); }));
